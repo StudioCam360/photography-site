@@ -62,6 +62,18 @@
       color: white;
       margin-top: 30px;
     }
+	
+	.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.checkbox-group label {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
   </style>
 </head>
 <body>
@@ -78,23 +90,46 @@
   <img src="https://source.unsplash.com/300x200/?event" alt="Gallery Image">
 </section>
 
-<section class="form-container">
-  <h2>Request a Quote</h2>
-  <form action="https://formsubmit.co/studiocam360@gmail.com" method="POST">
 
+<section class="form-container">
+  <h2>Book a Photography Service</h2>
+  <form action="https://formsubmit.co/studiocam360@gmail.com" method="POST">
+    
     <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="text" name="phone" placeholder="Phone Number" required>
-    <select name="service" required>
-      <option value="">Select Service</option>
-      <option>Wedding</option>
-      <option>Birthday</option>
-      <option>Portrait</option>
-      <option>Outdoor Shoot</option>
-    </select>
-    <input type="date" name="date" placeholder="Event Date" required>
-    <textarea name="message" rows="4" placeholder="Tell us more..."></textarea>
-    <button type="submit">Submit Request</button>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    
+    <input type="text" name="event_location" placeholder="Where is the event?" required>
+    
+    <h4>Event Start Date:</h4>
+    <input type="date" name="start_date" required>
+    
+    <h4>Event End Date:</h4>
+    <input type="date" name="end_date" required>
+    
+    <input type="text" name="budget" placeholder="Budget for Photography (in ₹)" required>
+
+    <h4>Select Required Services:</h4>
+<div class="checkbox-group">
+  <label><input type="checkbox" name="services[]" value="Photographer - Traditional"> Photographer - Traditional</label>
+  <label><input type="checkbox" name="services[]" value="Photographer - Candid"> Photographer - Candid</label>
+  <label><input type="checkbox" name="services[]" value="Videographer - Traditional"> Videographer - Traditional</label>
+  <label><input type="checkbox" name="services[]" value="Videographer - Candid"> Videographer - Candid</label>
+  <label><input type="checkbox" name="services[]" value="Drone"> Drone</label>
+  <label><input type="checkbox" name="services[]" value="TV (Within Chennai including Transportation)"> TV (Within Chennai including Transportation)</label>
+  <label><input type="checkbox" name="services[]" value="Live Streaming"> Live Streaming</label>
+  <label><input type="checkbox" name="services[]" value="LED TV BIG SCREEN"> LED TV BIG SCREEN</label>
+  <label><input type="checkbox" name="services[]" value="Outdoor shoot"> Outdoor shoot</label>
+</div>
+
+
+    <textarea name="message" rows="4" placeholder="Any other specific instructions?"></textarea>
+
+    <!-- Redirect to thank you page or back to site -->
+    <input type="hidden" name="_next" value="https://studiocam360.github.io/photography-site/thankyou.html">
+	
+
+    <button type="submit">Submit Booking Request</button>
   </form>
 </section>
 

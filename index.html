@@ -3,139 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>StudioCam360</title>
+  <title>Photography Booking</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-      color: #333;
-    }
-    header {
-      background-color: #000;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 20px;
-    }
-    .gallery img {
-      width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .form-container {
-      background: white;
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    input, textarea, select {
-      width: 90%;
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+  }
+
+  .checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Equal-width two columns */
+    gap: 10px 20px;
+    margin-top: 10px;
+  }
+
+ .checkbox-group label {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  font-weight: normal;
+  word-break: break-word;
+}
+
+
+  button {
+    background: #4CAF50;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background: #45a049;
+  }
+
+  @media (max-width: 600px) {
+    .container {
       padding: 10px;
-      margin-top: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
     }
-    button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      background-color: #000;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #000;
-      color: white;
-      margin-top: 30px;
-    }
-	
-	.checkbox-group {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
 
-.checkbox-group label {
-  margin-bottom: 8px;
-  font-size: 16px;
-}
-
-  </style>
+    .checkbox-group {
+      grid-template-columns: 1fr; /* stack on small screens */
+    }
+  }
+</style>
 </head>
 <body>
+  <div class="container">
+    <h2>Book a Photography Service</h2>
+    <form action="https://formsubmit.co/studiocam360@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="text" name="event_location" placeholder="Where is the event?" required>
+      <label>Event Start Date:</label>
+      <input type="date" name="start_date" required>
+      <label>Event End Date:</label>
+      <input type="date" name="end_date" required>
+      <input type="text" name="budget" placeholder="Budget for Photography (in ₹)" required>
 
-<header>
-  <h1>StudioCam360</h1>
-  <p>Capturing Moments That Matter</p>
-</header>
-
-<section class="gallery">
-  <img src="https://source.unsplash.com/300x200/?wedding,photography" alt="Gallery Image">
-  <img src="https://source.unsplash.com/300x200/?portrait" alt="Gallery Image">
-  <img src="https://source.unsplash.com/300x200/?nature" alt="Gallery Image">
-  <img src="https://source.unsplash.com/300x200/?event" alt="Gallery Image">
-</section>
-
-
-<section class="form-container">
-  <h2>Book a Photography Service</h2>
-  <form action="https://formsubmit.co/studiocam360@gmail.com" method="POST">
-    
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    
-    <input type="text" name="event_location" placeholder="Where is the event?" required>
-    
-    <h4>Event Start Date:</h4>
-    <input type="date" name="start_date" required>
-    
-    <h4>Event End Date:</h4>
-    <input type="date" name="end_date" required>
-    
-    <input type="text" name="budget" placeholder="Budget for Photography (in ₹)" required>
-
-    <h4>Select Required Services:</h4>
+      <label>Select Required Services:</label>
 <div class="checkbox-group">
-  <label><input type="checkbox" name="services[]" value="Photographer - Traditional"> Photographer - Traditional</label>
-  <label><input type="checkbox" name="services[]" value="Photographer - Candid"> Photographer - Candid</label>
-  <label><input type="checkbox" name="services[]" value="Videographer - Traditional"> Videographer - Traditional</label>
-  <label><input type="checkbox" name="services[]" value="Videographer - Candid"> Videographer - Candid</label>
-  <label><input type="checkbox" name="services[]" value="Drone"> Drone</label>
-  <label><input type="checkbox" name="services[]" value="TV (Within Chennai including Transportation)"> TV (Within Chennai including Transportation)</label>
-  <label><input type="checkbox" name="services[]" value="Live Streaming"> Live Streaming</label>
-  <label><input type="checkbox" name="services[]" value="LED TV BIG SCREEN"> LED TV BIG SCREEN</label>
-  <label><input type="checkbox" name="services[]" value="Outdoor shoot"> Outdoor shoot</label>
+  <label><input type="checkbox" name="services[]" value="Photographer - Traditional"><span>Photographer - Traditional</span></label>
+<label><input type="checkbox" name="services[]" value="Photographer - Candid"><span>Photographer - Candid</span></label>
+<label><input type="checkbox" name="services[]" value="Videographer - Traditional"><span>Videographer - Traditional</span></label>
+<label><input type="checkbox" name="services[]" value="Videographer - Candid"><span>Videographer - Candid</span></label>
+<label><input type="checkbox" name="services[]" value="Drone"><span>Drone</span></label>
+<label><input type="checkbox" name="services[]" value="TV (Within Chennai including Transportation)"><span>TV (Within Chennai including Transportation)</span></label>
+<label><input type="checkbox" name="services[]" value="Live Streaming"><span>Live Streaming</span></label>
+<label><input type="checkbox" name="services[]" value="LED TV BIG SCREEN"><span>LED TV BIG SCREEN</span></label>
+<label><input type="checkbox" name="services[]" value="Outdoor shoot"><span>Outdoor shoot</span></label>
+
 </div>
 
-
-    <textarea name="message" rows="4" placeholder="Any other specific instructions?"></textarea>
-
-    <!-- Redirect to thank you page or back to site -->
-    <input type="hidden" name="_next" value="https://studiocam360.github.io/photography-site/thankyou.html">
-	
-
-    <button type="submit">Submit Booking Request</button>
-  </form>
-</section>
-
-<footer>
-  <p>© 2025 Anandha Photography | Follow us on Instagram</p>
-</footer>
-
+      <textarea name="message" rows="4" placeholder="Any other specific instructions?"></textarea>
+      <input type="hidden" name="_next" value="https://studiocam360.github.io/photography-site/thankyou.html">
+      <button type="submit">Submit Booking Request</button>
+    </form>
+  </div>
 </body>
 </html>
